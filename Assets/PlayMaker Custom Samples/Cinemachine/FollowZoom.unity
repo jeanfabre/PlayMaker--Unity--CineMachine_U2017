@@ -364,7 +364,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1409647223}
-  m_LocalRotation: {x: 0.2096991, y: -0.0046769674, z: 0.0010030129, w: 0.9777543}
+  m_LocalRotation: {x: 0.14678387, y: 0.0013994164, z: -0.00020771737, w: 0.9891676}
   m_LocalPosition: {x: 4.9, y: 6.09, z: -7.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -386,7 +386,7 @@ MonoBehaviour:
   fsm:
     dataVersion: 2
     usedInTemplate: {fileID: 0}
-    name: FSM
+    name: FollowZoom Control
     startState: State 1
     states:
     - name: State 1
@@ -439,7 +439,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: 2.66
+          value: 3
         - useVariable: 1
           name: 
           tooltip: 
@@ -513,7 +513,7 @@ MonoBehaviour:
     locked: 0
     manualUpdate: 0
     keepDelayedEventsOnStateExit: 0
-    preprocessed: 0
+    preprocessed: 1
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
@@ -718,8 +718,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1747380105}
-  m_LocalRotation: {x: 0.2096991, y: -0.0046769674, z: 0.0010030129, w: 0.9777543}
-  m_LocalPosition: {x: 4.9, y: 6.09, z: -7.45}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
