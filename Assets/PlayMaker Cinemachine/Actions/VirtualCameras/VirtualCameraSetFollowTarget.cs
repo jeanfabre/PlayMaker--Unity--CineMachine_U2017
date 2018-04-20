@@ -11,8 +11,6 @@ namespace HutongGames.PlayMaker.Actions.ecosystem.cinemachine
 	[Tooltip("Sets the follow target of a Virtual Camera")]
 	public class VirtualCameraSetFollowTarget : ComponentAction<CinemachineVirtualCameraBase>
     {
-        public CinemachineActionHeader header;
-
         [RequiredField]
 		[Tooltip("The Cinemachine virtual Camera")]
 		[CheckForComponent(typeof(CinemachineVirtualCameraBase))]

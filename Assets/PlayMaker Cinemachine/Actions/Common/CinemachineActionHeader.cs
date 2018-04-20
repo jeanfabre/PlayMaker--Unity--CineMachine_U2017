@@ -6,4 +6,6 @@
 /// Just a beautifier to add the cinemachine logo at the top of every cinemachine actions
 /// </summary>
 public class CinemachineActionHeader {
+
+  public static bool HideActionHeader;
 }

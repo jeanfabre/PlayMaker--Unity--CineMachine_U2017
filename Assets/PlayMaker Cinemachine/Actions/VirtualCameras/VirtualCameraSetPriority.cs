@@ -8,10 +8,8 @@ namespace HutongGames.PlayMaker.Actions.ecosystem.cinemachine
 {
     [ActionCategory("Cinemachine")]
 	[Tooltip("Sets the priority of a Virtual Camera")]
-	public class VirtualCameraSetPriority : ComponentAction<CinemachineVirtualCameraBase>
+    public class VirtualCameraSetPriority : CinemachineActionBase<CinemachineVirtualCameraBase>
     {
-        public CinemachineActionHeader header;
-
         [RequiredField]
 		[Tooltip("The Cinemachine virtual Camera")]
 		[CheckForComponent(typeof(CinemachineVirtualCameraBase))]

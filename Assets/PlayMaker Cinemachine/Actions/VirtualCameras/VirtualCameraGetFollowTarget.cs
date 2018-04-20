@@ -2,17 +2,14 @@
 // Author jean@hutonggames.com
 // This code is licensed under the MIT Open source License
 
-using UnityEngine;
 using Cinemachine;
 
 namespace HutongGames.PlayMaker.Actions.ecosystem.cinemachine
 {
     [ActionCategory("Cinemachine")]
 	[Tooltip("Gets the follow target of a Virtual Camera")]
-	public class VirtualCameraGetFollowTarget : ComponentAction<CinemachineVirtualCameraBase>
+    public class VirtualCameraGetFollowTarget : CinemachineActionBase<CinemachineVirtualCameraBase>
     {
-        public CinemachineActionHeader header;
-
         [RequiredField]
 		[Tooltip("The Cinemachine virtual Camera")]
 		[CheckForComponent(typeof(CinemachineVirtualCameraBase))]

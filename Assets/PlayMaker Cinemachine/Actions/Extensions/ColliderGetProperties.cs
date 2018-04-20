@@ -8,11 +8,8 @@ namespace HutongGames.PlayMaker.Actions.ecosystem.cinemachine
 {
     [ActionCategory("Cinemachine")]
 	[Tooltip("Gets the properties of a Collider Virtual Camera extension")]
-    public class ColliderGetProperties : ComponentAction<CinemachineCollider>
+    public class ColliderGetProperties : CinemachineActionBase<CinemachineCollider>
     {
-        //Header
-        public CinemachineActionHeader header;
-
         [RequiredField]
 		[Tooltip("The Cinemachine Follow Zoom Extension")]
         [CheckForComponent(typeof(CinemachineCollider))]

@@ -9,10 +9,8 @@ namespace HutongGames.PlayMaker.Actions.ecosystem.cinemachine
 {
     [ActionCategory("Cinemachine")]
 	[Tooltip("Sets the look at target of a Virtual Camera")]
-	public class VirtualCameraSetLookAtTarget : ComponentAction<CinemachineVirtualCameraBase>
+    public class VirtualCameraSetLookAtTarget : CinemachineActionBase<CinemachineVirtualCameraBase>
     {
-        public CinemachineActionHeader header;
-
         [RequiredField]
 		[Tooltip("The Cinemachine virtual Camera")]
 		[CheckForComponent(typeof(CinemachineVirtualCameraBase))]
