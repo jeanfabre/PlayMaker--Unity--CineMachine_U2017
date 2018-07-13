@@ -36,7 +36,7 @@ public class CinemachineActionHeaderPropertyDrawer : PropertyDrawer {
         get
         {
             if (sCinemachineHeader == null)
-                sCinemachineHeader = Resources.Load<Texture2D>("cinemachine_playmaker_action_header");
+                sCinemachineHeader = Resources.Load<Texture2D>("Cinemachine_playmaker_action_header");
             ;
             if (sCinemachineHeader != null)
                 sCinemachineHeader.hideFlags = HideFlags.DontSaveInEditor;

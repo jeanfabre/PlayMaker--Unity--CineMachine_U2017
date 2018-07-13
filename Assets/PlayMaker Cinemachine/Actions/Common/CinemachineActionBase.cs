@@ -5,7 +5,6 @@
 #if UNITY_EDITOR
 
 using UnityEditor;
-
 #endif
 
 using UnityEngine;
@@ -24,9 +23,10 @@ namespace HutongGames.PlayMaker.Actions.ecosystem.cinemachine
 
         const string HideActionHeaderPrefsKey = "PlayMaker.ecosystem.cinemachine.HideActionHeader";
 
-        public override void InitEditor()
-        {
+		public override void InitEditor (Fsm fsmOwner)
+		{
             CinemachineActionHeader.HideActionHeader = EditorPrefs.GetBool(HideActionHeaderPrefsKey, false);
+
         }
 
         public bool HideActionHeader()

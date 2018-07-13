@@ -5,85 +5,166 @@
 using UnityEngine;
 using Cinemachine;
 
+using HutongGames.PlayMaker.Ecosystem.Utils;
 using HutongGames.PlayMaker;
 
-using HutongGames.PlayMaker.Ecosystem.Utils;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 
 /// <summary>
 
 /// </summary>
-public class CinemachineColliderExtensionProxy : MonoBehaviour {
+[ExecuteInEditMode]
+public class CinemachineColliderExtensionProxy : MonoBehaviour
+{
 
 
-	[UnityEngine.Tooltip("Reference to the CinemachineCollider component")]
-	[ExpectComponent(typeof(CinemachineCollider))]
-	public Owner ColliderExtension;
+    [UnityEngine.Tooltip("Reference to the CinemachineCollider component")]
+    [ExpectComponent(typeof(CinemachineCollider))]
+    public Owner ColliderExtension;
 
-	[Header("Events")]
-	public PlayMakerEventTarget eventTarget = new PlayMakerEventTarget(true);
+    [Header("Events")]
+    public PlayMakerEventTarget eventTarget = new PlayMakerEventTarget(true);
 
-	[EventTargetVariable("eventTarget")]
-	[ShowOptions]
-	public PlayMakerEvent onTargetBecameObscuredEvent= new PlayMakerEvent("CINEMACHINE / COLLIDER / ON TARGET BECAME OBSCURED");
+    [EventTargetVariable("eventTarget")]
+    [ShowOptions]
+    public PlayMakerEvent onTargetObscuredBeganEvent = new PlayMakerEvent("CINEMACHINE / COLLIDER / ON TARGET OBSCURED BEGAN");
 
-	[EventTargetVariable("eventTarget")]
-	[ShowOptions]
-	public PlayMakerEvent onTargetBecameVisibleEvent= new PlayMakerEvent("CINEMACHINE / COLLIDER / ON TARGET BECAME VISIBLE");
+    [EventTargetVariable("eventTarget")]
+    [ShowOptions]
+    public PlayMakerEvent onTargetObscuredEndedEvent = new PlayMakerEvent("CINEMACHINE / COLLIDER / ON TARGET OBSCURED ENDED");
 
-	[EventTargetVariable("eventTarget")]
-	[ShowOptions]
-	public PlayMakerEvent onCameraWasDisplacedEvent= new PlayMakerEvent("CINEMACHINE / COLLIDER / ON CAMERA WAS DISPLACED");
+    [EventTargetVariable("eventTarget")]
+    [ShowOptions]
+    public PlayMakerEvent onCameraDisplacedBeganEvent = new PlayMakerEvent("CINEMACHINE / COLLIDER / ON CAMERA DISPLACED BEGAN");
 
-	[Header("Variables")]
-	public PlayMakerFsmVariableTarget variableTarget = new PlayMakerFsmVariableTarget();
+    [EventTargetVariable("eventTarget")]
+    [ShowOptions]
+    public PlayMakerEvent onCameraDisplacedEndedEvent = new PlayMakerEvent("CINEMACHINE / COLLIDER / ON CAMERA DISPLACED ENDED");
 
-	[FsmVariableTargetVariable("variableTarget")]
-	public PlayMakerFsmVariable TargetObscuredVariable = new PlayMakerFsmVariable (VariableSelectionChoice.Bool);
+    [Header("Variables")]
+    public PlayMakerFsmVariableTarget variableTarget = new PlayMakerFsmVariableTarget();
 
-	[FsmVariableTargetVariable("variableTarget")]
-	public PlayMakerFsmVariable CameraWasDisplaced = new PlayMakerFsmVariable (VariableSelectionChoice.Bool);
+    [FsmVariableTargetVariable("variableTarget")]
+    public PlayMakerFsmVariable TargetObscuredVariable = new PlayMakerFsmVariable(VariableSelectionChoice.Bool);
 
-
-	public bool debug = false;
-
-
-	public bool IsTargetObscured_x;
-	public bool CameraWasDisplaced_x;
-
-	CinemachineCollider _cache;
+    [FsmVariableTargetVariable("variableTarget")]
+    public PlayMakerFsmVariable CameraWasDisplaced = new PlayMakerFsmVariable(VariableSelectionChoice.Bool);
 
 
-	// Use this for initialization
-	void Start () {
-		_cache = ColliderExtension.gameObject.GetComponent<CinemachineCollider> ();
+    public bool debug = false;
 
-		TargetObscuredVariable.GetVariable(variableTarget);
-		CameraWasDisplaced.GetVariable (variableTarget);
-
-	}
-
-	void Update()
-	{
-		if (_cache.IsTargetObscured (_cache.VirtualCamera)) {
-			Debug.Log ("IsTargetObscured");
-		}
-
-		if (_cache.CameraWasDisplaced (_cache.VirtualCamera)) {
-			Debug.Log ("CameraWasDisplaced");
-		}
+    CinemachineCollider _cache;
+    CinemachineVirtualCameraBase _vcam;
 
 
-		IsTargetObscured_x = _cache.IsTargetObscured (_cache.VirtualCamera);
-		CameraWasDisplaced_x = _cache.CameraWasDisplaced (_cache.VirtualCamera);
+    bool _currentlyObscured;
+    bool _currentlyDisplaced;
+
+    #if UNITY_EDITOR
+    bool _eventadded;
+    #endif
+
+    // Use this for initialization
+    void Start()
+    {
+        _cache = ColliderExtension.gameObject.GetComponent<CinemachineCollider>();
+
+        TargetObscuredVariable.GetVariable(variableTarget);
+        CameraWasDisplaced.GetVariable(variableTarget);
+
+    }
+
+    void OnEnable()
+    {
+        _currentlyObscured = false;
+        _currentlyDisplaced = false;
+    }
+
+    void Update()
+    {
+        #if UNITY_EDITOR
+        if (!EditorApplication.isPlaying)
+        {
+            CreateGlobalEventIfNecessary();
+        }
+        #endif
 
 
-		if (TargetObscuredVariable.initialized) {
-			TargetObscuredVariable.FsmBool.Value = _cache.IsTargetObscured(_cache.VirtualCamera);
-		}
+        if (_cache != null)
+            _vcam = _cache.VirtualCamera.LiveChildOrSelf as CinemachineVirtualCameraBase;
 
-		if (CameraWasDisplaced.initialized) {
-			CameraWasDisplaced.FsmBool.Value = _cache.CameraWasDisplaced (_cache.VirtualCamera);
-		}
-	}
 
+        if (_vcam == null)
+        {
+            return;
+        }
+
+        // variables
+        if (TargetObscuredVariable.initialized)
+        {
+            TargetObscuredVariable.FsmBool.Value = _cache.IsTargetObscured(_vcam);
+        }
+
+        if (CameraWasDisplaced.initialized)
+        {
+            CameraWasDisplaced.FsmBool.Value = _cache.CameraWasDisplaced(_vcam);
+        }
+
+        // events
+        if (_cache.IsTargetObscured(_vcam) && !_currentlyObscured)
+        {
+            _currentlyObscured = true;
+            onTargetObscuredBeganEvent.SendEvent(null, eventTarget, debug);
+        }
+
+        if (!_cache.IsTargetObscured(_vcam) && _currentlyObscured) // only call on our way back from being obscured
+        {
+            _currentlyObscured = false;
+            onTargetObscuredEndedEvent.SendEvent(null, eventTarget, debug);
+        }
+
+        if (_cache.CameraWasDisplaced(_vcam) && !_currentlyDisplaced)
+        {
+            _currentlyDisplaced = true;
+            onCameraDisplacedBeganEvent.SendEvent(null, eventTarget, debug);
+        }
+
+        if (!_cache.CameraWasDisplaced(_vcam) && _currentlyDisplaced) // only call on our way back from being obscured
+        {
+            _currentlyDisplaced = false;
+            onCameraDisplacedEndedEvent.SendEvent(null, eventTarget, debug);
+        }
+
+    }
+
+
+#if UNITY_EDITOR
+    void CreateGlobalEventIfNecessary()
+    {
+        if (!_eventadded)
+        {
+            AddGlobalEvent("CINEMACHINE / COLLIDER / ON TARGET OBSCURED BEGAN");
+            AddGlobalEvent("CINEMACHINE / COLLIDER / ON TARGET OBSCURED ENDED");
+            AddGlobalEvent("CINEMACHINE / COLLIDER / ON CAMERA DISPLACED BEGAN");
+            _eventadded =  AddGlobalEvent("CINEMACHINE / COLLIDER / ON CAMERA DISPLACED ENDED");
+        }
+    }
+
+    bool AddGlobalEvent(string globalEventName)
+    {
+
+        if (!FsmEvent.IsEventGlobal(globalEventName))
+        {
+            FsmEvent _event = new FsmEvent(globalEventName);
+            _event.IsGlobal = true;
+            FsmEvent.AddFsmEvent(_event);
+            return true;
+        }
+
+        return false;
+    }
+#endif
 }

@@ -688,7 +688,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1343764756}
-  m_LocalRotation: {x: 0.035979692, y: 0.00000013543719, z: -0.000000017176482, w: 0.9993526}
+  m_LocalRotation: {x: 0.035979662, y: 0.00000013543719, z: -0.00000001717666, w: 0.9993526}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -782,18 +782,22 @@ MonoBehaviour:
     gameObject: {fileID: 1681783776}
     includeChildren: 1
     fsmComponent: {fileID: 0}
-  onTargetBecameObscuredEvent:
-    eventName: CINEMACHINE /  COLLIDER / ON TARGET BECAME OBSCURED
+  onTargetObscuredBeganEvent:
+    eventName: CINEMACHINE / COLLIDER / ON TARGET OBSCURED BEGAN
     allowLocalEvents: 0
-    defaultEventName: CINEMACHINE / EXTENSION / COLLIDER / ON TARGET BECAME OBSCURED
-  onTargetBecameVisibleEvent:
-    eventName: 
+    defaultEventName: CINEMACHINE / COLLIDER / ON TARGET OBSCURED BEGAN
+  onTargetObscuredEndedEvent:
+    eventName: CINEMACHINE / COLLIDER / ON TARGET OBSCURED ENDED
     allowLocalEvents: 0
-    defaultEventName: CINEMACHINE / EXTENSION / COLLIDER / ON TARGET BECAME VISIBLE
-  onCameraWasDisplacedEvent:
-    eventName: 
+    defaultEventName: CINEMACHINE / COLLIDER / ON TARGET OBSCURED ENDED
+  onCameraDisplacedBeganEvent:
+    eventName: CINEMACHINE / COLLIDER / ON CAMERA DISPLACED BEGAN
     allowLocalEvents: 0
-    defaultEventName: CINEMACHINE / EXTENSION / COLLIDER / ON CAMERA WAS DISPLACED
+    defaultEventName: CINEMACHINE / COLLIDER / ON CAMERA DISPLACED BEGAN
+  onCameraDisplacedEndedEvent:
+    eventName: CINEMACHINE / COLLIDER / ON CAMERA DISPLACED ENDED
+    allowLocalEvents: 0
+    defaultEventName: CINEMACHINE / COLLIDER / ON CAMERA DISPLACED ENDED
   variableTarget:
     variableTarget: 0
     gameObject: {fileID: 1681783776}
@@ -813,9 +817,7 @@ MonoBehaviour:
     defaultVariableName: 
     initialized: 1
     targetUndefined: 0
-  debug: 1
-  IsTargetObscured_x: 0
-  CameraWasDisplaced_x: 0
+  debug: 0
 --- !u!114 &1681783778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -890,8 +892,164 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 80
-        y: 192
+        x: 192
+        y: 224
+        width: 399
+        height: 16
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions: []
+      actionData:
+        actionNames: []
+        customNames: []
+        actionEnabled: 
+        actionIsOpen: 
+        actionStartIndex: 
+        actionHashCodes: 
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 
+        paramName: []
+        paramDataPos: 
+        paramByteDataSize: 
+    - name: State 3
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 192
+        y: 320
+        width: 400
+        height: 16
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions: []
+      actionData:
+        actionNames: []
+        customNames: []
+        actionEnabled: 
+        actionIsOpen: 
+        actionStartIndex: 
+        actionHashCodes: 
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 
+        paramName: []
+        paramDataPos: 
+        paramByteDataSize: 
+    - name: State 4
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 192
+        y: 416
+        width: 400
+        height: 16
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions: []
+      actionData:
+        actionNames: []
+        customNames: []
+        actionEnabled: 
+        actionIsOpen: 
+        actionStartIndex: 
+        actionHashCodes: 
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 
+        paramName: []
+        paramDataPos: 
+        paramByteDataSize: 
+    - name: State 5
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 192
+        y: 512
         width: 400
         height: 16
       isBreakpoint: 0
@@ -938,15 +1096,48 @@ MonoBehaviour:
         paramDataPos: 
         paramByteDataSize: 
     events:
-    - name: CINEMACHINE /  COLLIDER / ON TARGET BECAME OBSCURED
+    - name: CINEMACHINE / COLLIDER / ON CAMERA DISPLACED BEGAN
+      isSystemEvent: 0
+      isGlobal: 1
+    - name: CINEMACHINE / COLLIDER / ON CAMERA DISPLACED ENDED
+      isSystemEvent: 0
+      isGlobal: 1
+    - name: CINEMACHINE / COLLIDER / ON TARGET OBSCURED BEGAN
+      isSystemEvent: 0
+      isGlobal: 1
+    - name: CINEMACHINE / COLLIDER / ON TARGET OBSCURED ENDED
       isSystemEvent: 0
       isGlobal: 1
     globalTransitions:
     - fsmEvent:
-        name: CINEMACHINE /  COLLIDER / ON TARGET BECAME OBSCURED
+        name: CINEMACHINE / COLLIDER / ON TARGET OBSCURED BEGAN
         isSystemEvent: 0
         isGlobal: 1
       toState: State 2
+      linkStyle: 0
+      linkConstraint: 0
+      colorIndex: 0
+    - fsmEvent:
+        name: CINEMACHINE / COLLIDER / ON TARGET OBSCURED ENDED
+        isSystemEvent: 0
+        isGlobal: 1
+      toState: State 3
+      linkStyle: 0
+      linkConstraint: 0
+      colorIndex: 0
+    - fsmEvent:
+        name: CINEMACHINE / COLLIDER / ON CAMERA DISPLACED BEGAN
+        isSystemEvent: 0
+        isGlobal: 1
+      toState: State 4
+      linkStyle: 0
+      linkConstraint: 0
+      colorIndex: 0
+    - fsmEvent:
+        name: CINEMACHINE / COLLIDER / ON CAMERA DISPLACED ENDED
+        isSystemEvent: 0
+        isGlobal: 1
+      toState: State 5
       linkStyle: 0
       linkConstraint: 0
       colorIndex: 0
@@ -990,7 +1181,7 @@ MonoBehaviour:
     locked: 0
     manualUpdate: 0
     keepDelayedEventsOnStateExit: 0
-    preprocessed: 1
+    preprocessed: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
@@ -1019,6 +1210,7 @@ MonoBehaviour:
     handleFixedUpdate: 0
     handleLateUpdate: 0
     handleApplicationEvents: 0
+    handleUiEvents: 0
     handleLegacyNetworking: 0
     handleAnimatorMove: 0
     handleAnimatorIK: 0
@@ -1230,7 +1422,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1882019631}
-  m_LocalRotation: {x: 0.005970394, y: 0.0000001229418, z: 0.000000010806511, w: 0.99998224}
+  m_LocalRotation: {x: 0.0059704175, y: 0.0000001229418, z: 0.00000001080654, w: 0.99998224}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1248,7 +1440,6 @@ GameObject:
   - component: {fileID: 1956070573}
   - component: {fileID: 1956070572}
   - component: {fileID: 1956070574}
-  - component: {fileID: 1956070575}
   m_Layer: 0
   m_Name: CM FreeLook1
   m_TagString: Untagged
@@ -1360,17 +1551,3 @@ MonoBehaviour:
   m_MaximumEffort: 4
   m_Damping: 0
   m_OptimalTargetDistance: 0
---- !u!114 &1956070575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1956070571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec4619794b2bf4496b5ab0f18bbe0f14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsTargetObscured: 0
-  CameraWasDisplaced: 0
-  VirtualCamera: {fileID: 0}

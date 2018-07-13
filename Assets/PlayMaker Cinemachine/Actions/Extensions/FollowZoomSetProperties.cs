@@ -8,6 +8,7 @@ namespace HutongGames.PlayMaker.Actions.ecosystem.cinemachine
 {
     [ActionCategory("Cinemachine")]
 	[Tooltip("Sets the properties of a FollowZoom Virtual Camera extension")]
+    [HelpUrl("http://www.fabrejean.net")]
     public class FollowZoomSetProperties : CinemachineActionBase<CinemachineFollowZoom>
     {
         [RequiredField]

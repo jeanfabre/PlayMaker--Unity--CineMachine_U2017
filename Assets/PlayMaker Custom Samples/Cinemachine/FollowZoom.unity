@@ -364,7 +364,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1409647223}
-  m_LocalRotation: {x: 0.14678387, y: 0.0013994164, z: -0.00020771737, w: 0.9891676}
+  m_LocalRotation: {x: 0.2096988, y: -0.0048961127, z: 0.0010500031, w: 0.9777533}
   m_LocalPosition: {x: 4.9, y: 6.09, z: -7.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -410,7 +410,7 @@ MonoBehaviour:
         actionEnabled: 01
         actionIsOpen: 01
         actionStartIndex: 00000000
-        actionHashCodes: 2a949a01
+        actionHashCodes: 2e7f2e02
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -472,17 +472,17 @@ MonoBehaviour:
         customTypeSizes: 00000000
         customTypeNames:
         - CinemachineActionHeader
-        paramDataType: 28000000140000000f0000000f0000000f0000000f00000001000000
+        paramDataType: 140000000f0000000f0000000f0000000f0000000100000028000000
         paramName:
-        - header
         - gameObject
         - width
         - damping
         - minFOV
         - maxFOV
         - everyFrame
-        paramDataPos: 00000000000000000000000001000000020000000300000000000000
-        paramByteDataSize: 00000000000000000000000000000000000000000000000001000000
+        - header
+        paramDataPos: 00000000000000000100000002000000030000000000000000000000
+        paramByteDataSize: 00000000000000000000000000000000000000000100000000000000
     events: []
     globalTransitions: []
     variables:
@@ -513,7 +513,7 @@ MonoBehaviour:
     locked: 0
     manualUpdate: 0
     keepDelayedEventsOnStateExit: 0
-    preprocessed: 1
+    preprocessed: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
@@ -542,6 +542,7 @@ MonoBehaviour:
     handleFixedUpdate: 0
     handleLateUpdate: 0
     handleApplicationEvents: 0
+    handleUiEvents: 0
     handleLegacyNetworking: 0
     handleAnimatorMove: 0
     handleAnimatorIK: 0
@@ -718,8 +719,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1747380105}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.2096988, y: -0.0048961127, z: 0.0010500031, w: 0.9777533}
+  m_LocalPosition: {x: 4.9, y: 6.09, z: -7.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
