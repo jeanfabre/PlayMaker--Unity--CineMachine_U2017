@@ -1,3 +1,6 @@
 [submodule "Assets/PlayMaker Utils/"]
 	path = Assets/PlayMaker Utils/
 	url = https://github.com/jeanfabre/PlayMaker--Utils
+[submodule "Assets/PlayMaker Cinemachine"]
+	path = Assets/PlayMaker Cinemachine
+	url = https://github.com/PlayMakerEcosystem/PlayMaker--Unity--Cinemachine-Submodule-
